@@ -1,0 +1,108 @@
+[
+    {
+        "id": "5d9533674b61c66f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e36aab8e32f51987",
+        "type": "tab",
+        "label": "http t",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "eadad80951305f88",
+        "type": "inject",
+        "z": "5d9533674b61c66f",
+        "name": "hii",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "xxxx",
+        "payload": "Hello word",
+        "payloadType": "str",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "4bf6e87c8171d56b"
+            ]
+        ]
+    },
+    {
+        "id": "4bf6e87c8171d56b",
+        "type": "debug",
+        "z": "5d9533674b61c66f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "59ff2a1.fa600d4",
+        "type": "http in",
+        "z": "e36aab8e32f51987",
+        "name": "",
+        "url": "/ex1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "54c1e70d.ab3e18"
+            ]
+        ]
+    },
+    {
+        "id": "54c1e70d.ab3e18",
+        "type": "template",
+        "z": "e36aab8e32f51987",
+        "name": "page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>hello to my first page!</h1>\n    </body>\n</html>",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "266c286f.d993d8"
+            ]
+        ]
+    },
+    {
+        "id": "266c286f.d993d8",
+        "type": "http response",
+        "z": "e36aab8e32f51987",
+        "name": "",
+        "x": 450,
+        "y": 160,
+        "wires": []
+    }
+]
